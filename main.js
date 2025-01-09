@@ -7,7 +7,6 @@ function addProduct(name,price,imageUrl) { //function to add a product to the pr
     })
     displayProducts() // call the array after adding the new product to the products array
 }
-
 // display all products
 function displayProducts() {
     var $productList = $('#product-container') // select the product list
@@ -49,13 +48,16 @@ $('#search-bar').on('input', function () {
     var searchTerm = $(this).val().toLowerCase() // get the search term in lowercase
     // loop  all product cards
     $('#product-container .product-card').each(function () {
-        var productName = $(this).find('h3').text().toLowerCase() // Find and get product name in lowercase
-
+        var productName = $(this).find('h3').text().toLowerCase() // find and get product name in lowercase
         // show or hide the product card based on the search term
-        if (productName.includes(searchTerm)) {
+        if (productName.includes(searchTerm)){
             $(this).show() // show product
         } else {
             $(this).hide() // hide product
         }
     })
+})
+//linking the about us page with html
+$('.about').on('click',function(){
+    window.location.href='./PAGES/aboutUS.html'
 })
