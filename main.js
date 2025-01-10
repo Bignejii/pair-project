@@ -7,20 +7,18 @@ function addProduct(name,price,imageUrl) { //function to add a product to the pr
     })
     displayProducts() // call the array after adding the new product to the products array
 }
-function displayProducts() {//display all products
-    var $productList = $('#product-container') // select the product list
-    $productList.empty() // delete existing product cards
-    // loop in products array
-    for (var i = 0; i < products.length; i++) {
-        var product = products[i] 
-        var $productCard = $('<div>').addClass('product-card') // make div with class "product-card"
-        var $productImage = $('<img>')
-            .attr('src', product.imageUrl)
-            .attr('alt', product.name) 
-        var $productName = $('<h3>').text(product.name) // product name in h3
-        var $productPrice = $('<p>').text('Price: $' + product.price) // Product price in pargraf
-        $productCard.append($productImage, $productName, $productPrice)//add elements to the product card as the last childe of the parent
-        $productList.append($productCard)//add the product card to the product container
+function displayProducts(){
+    var $productList=('#product-container') // select list product 
+    $productList.empty() //  delete product cards 
+    for(var i = 0;i<products.length;i++){//loop
+        var product=products[i]
+        var productCardHTML=//mkae product card in the html
+            '<div class="product-card">'+
+                '<img src="'+product.imageUrl+'" alt="'+product.name+'">'+
+                '<h3>'+product.name+'</h3>'+
+                '<p>Price: $'+product.price+'</p>'+
+            '</div>'
+        $productList.append(productCardHTML)//add the product card to product list
     }
 }
 $('#add-product-button').on('click', function () {
@@ -32,26 +30,26 @@ $('#add-product-button').on('click', function () {
         return 
     }
     addProduct(name, price, imageUrl)    // add product and update the display
-    $('#product-name').val('') // clear name 
-    $('#product-price').val('') // clear price 
-    $('#product-image').val('') // clear image url
+    $('#product-name').val('') // delete name 
+    $('#product-price').val('') // delete price 
+    $('#product-image').val('') // delete image url
 })
 // search function
-$('#search-bar').on('input', function () {
-    var searchTerm = $(this).val().toLowerCase(); // get the search  in lowercase
-    var productCards = $('#product-container .product-card')
-    // Use a for loop to iterate over the product cards
-    for (var i = 0; i < productCards.length; i++) {//loop  over the product cards
-        var card = $(productCards[i])
+$('#search-bar').on('input',function(){
+    var $searchBar=$('#search-bar')
+    var searchTerm=$searchBar.val().toLowerCase()
+    var productCards=$('#product-container .product-card')
+    for(var i=0;i<productCards.length;i++){//loop
+        var card=$(productCards[i])
         var productName = card.children('h3').text().toLowerCase()
-        // Show or hide the product card based on the search term
-        if (productName.includes(searchTerm)) {//show or hide the product card based on the search
+        if (productName.includes(searchTerm)) {
             card.show(); // show product
         } else {
             card.hide(); // hide product
         }
     }
 });
+
 //linking the about us page with html
 $('.about').on('click',function(){
     window.location.href='./PAGES/aboutUS.html'
