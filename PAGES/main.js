@@ -22,19 +22,22 @@ function displayProducts() {
         $productList.append(productCardHTML)
     }
 }
-
 $('#add-product-button').on('click', function () {
-    var name = $('#product-name').val() // get the product name
-    var price = $('#product-price').val() // get the product price
-    var imageUrl = $('#product-image').val() // get the product image URL
-    if (!name || !price || !imageUrl) {//validate the inputs
-        alert('All fields are required!') // alert if any field is empty
-        return 
+    var name = document.getElementById('product-name').value; // get name
+    var price = document.getElementById('product-price').value; // get price
+    var imageUrl = document.getElementById('product-image').value; // get image url
+
+    if (!name || !price || !imageUrl) { // make sure to put  inputs
+        alert('All fields are required!'); // alert if  field is empty
+        return;
     }
-    addProduct(name, price, imageUrl)    // add product and update the display
-    $('#product-name').val('') // delete name 
-    $('#product-price').val('') // delete price 
-    $('#product-image').val('') // delete image url
+
+    addProduct(name, price, imageUrl); // add product and update the display
+
+    // delete  the input
+    document.getElementById('product-name').value = ''; // delete name
+    document.getElementById('product-price').value = ''; // delete price
+    document.getElementById('product-image').value = ''; // delete image url
 })
 // search function
 $('#search-bar').on('input',function(){
