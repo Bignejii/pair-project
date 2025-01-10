@@ -2,7 +2,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-image: url('./backround.gif'); 
+    background-image: url('../IMGS/backround.gif'); 
     background-size: cover; 
     background-position: center center; 
     background-repeat: no-repeat; 
