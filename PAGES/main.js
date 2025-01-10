@@ -7,20 +7,22 @@ function addProduct(name,price,imageUrl) { //function to add a product to the pr
     })
     displayProducts() // call the array after adding the new product to the products array
 }
-function displayProducts(){
-    var $productList=('#product-container') // select list product 
-    $productList.empty() //  delete product cards 
-    for(var i = 0;i<products.length;i++){//loop
-        var product=products[i]
-        var productCardHTML=//mkae product card in the html
-            '<div class="product-card">'+
-                '<img src="'+product.imageUrl+'" alt="'+product.name+'">'+
-                '<h3>'+product.name+'</h3>'+
-                '<p>Price: $'+product.price+'</p>'+
-            '</div>'
-        $productList.append(productCardHTML)//add the product card to product list
+function displayProducts() {
+    var $productList = $('#product-container')
+    $productList.empty()
+
+    for (var i = 0; i < products.length; i++) {
+        var product = products[i]
+        var productCardHTML =
+            '<div class="product-card">' +
+                '<img src="' + product.imageUrl + '" alt="' + product.name + '">' +
+                '<h3>' + product.name + '</h3>' +
+                '<p>Price: $' + product.price + '</p>' +
+            '</div>';
+        $productList.append(productCardHTML)
     }
 }
+
 $('#add-product-button').on('click', function () {
     var name = $('#product-name').val() // get the product name
     var price = $('#product-price').val() // get the product price
@@ -54,16 +56,5 @@ $('#search-bar').on('input',function(){
 $('.about').on('click',function(){
     window.location.href='./aboutUS.html'
 })
-function login() {
-    var Username = 'admin'
-    var Password = 'admin123'
-    var Username = document.getElementById('user0').value
-    var Password = document.getElementById('user1').value
-    if (Username === Username && Password === Password) {
-        window.location.href = "index.html"
-    } else {
-        alert('Incorrect password')
-    }
-}
-document.getElementById('loginbttn').addEventListener('click', login)
+
 
