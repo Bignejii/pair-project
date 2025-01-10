@@ -1,13 +1,13 @@
 function login() {
-    var username = document.getElementById("#user0").value;
-    var password = document.getElementById("#password").value;
-
-    //
-    if (username === "admin" && password === "password123") {
-        alert("Login successful!");
-        
-        window.location.href = "index.html"; 
+    var Username = 'admin'
+    var Password = 'admin123'
+    var Username = document.getElementById('user0').value
+    var Password = document.getElementById('user1').value
+    if (Username === Username && Password === Password) {
+        window.location.href = "index.html"
     } else {
-        alert("Invalid username or password.");
+        alert('Incorrect password')
     }
 }
+document.getElementById('loginbttn').addEventListener('click', login)
+
